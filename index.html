@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avail Atomic — Route Orders To CLOBs With Atomic Settlement</title>
+  <meta name="description" content="Avail Atomic routes orders to CLOBs and PropAMMs for better pricing while atomically settling transactions onchain.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+<div class="page-shell">
+  <div class="page-bg" aria-hidden="true">
+    <canvas class="page-bg__canvas"></canvas>
+  </div>
+
+  <!-- ============== HERO + NAV ============== -->
+  <section class="section hero">
+    <div class="site-container">
+      <header class="nav-header">
+        <div class="nav-pill">
+          <a href="https://availproject.org/" class="nav-logo" aria-label="Avail home">
+            <img src="assets/logo-mark.svg" alt="" class="nav-logo__mark" width="24" height="24">
+            <img src="assets/logo-wordmark.svg" alt="avail" class="nav-logo__wordmark" width="46" height="17">
+          </a>
+          <nav class="nav-links" aria-label="Primary">
+            <a href="https://availproject.org/" class="nav-links__item">Solutions</a>
+            <a href="https://availproject.org/" class="nav-links__item">Products</a>
+            <a href="#how" class="nav-links__item">Ecosystem</a>
+            <a href="https://docs.availproject.org/" class="nav-links__item" target="_blank" rel="noopener">Docs</a>
+            <a href="https://blog.availproject.org/" class="nav-links__item" target="_blank" rel="noopener">Blog</a>
+          </nav>
+          <button type="button" class="nav-menu" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+            <span class="nav-menu__icon" aria-hidden="true"></span>
+            <span class="nav-menu__label">Menu</span>
+          </button>
+        </div>
+        <a href="#contact" class="btn btn-primary nav-header__cta">Build with Avail</a>
+      </header>
+
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        <nav class="mobile-menu__nav" aria-label="Mobile">
+          <a href="https://availproject.org/" class="mobile-menu__link">Solutions</a>
+          <a href="https://availproject.org/" class="mobile-menu__link">Products</a>
+          <a href="#how" class="mobile-menu__link">Ecosystem</a>
+          <a href="https://docs.availproject.org/" class="mobile-menu__link" target="_blank" rel="noopener">Docs</a>
+          <a href="https://blog.availproject.org/" class="mobile-menu__link" target="_blank" rel="noopener">Blog</a>
+          <a href="#contact" class="btn btn-primary mobile-menu__cta">Build with Avail</a>
+        </nav>
+      </div>
+
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <h1>Swap assets at the best price</h1>
+          <p class="hero__sub">Access deeper liquidity from CLOBs and PropAMMs with atomic settlement and trustless execution.</p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            <a href="https://docs.availproject.org/" class="btn btn-secondary" target="_blank" rel="noopener">Read the Docs</a>
+          </div>
+        </div>
+        <div class="hero__visual"><img src="assets/visuals/hero-atom.png" alt="Avail Atomic — chains connected through an atomic core" width="600" height="647"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== WHAT IS AVAIL ATOMIC ============== -->
+  <section class="section infra">
+    <div class="section__inner">
+      <p class="eyebrow">What is Avail Atomic</p>
+      <h2 class="h2">Offchain liquidity guaranteed onchain</h2>
+      <div class="infra__prose">
+        <p>Connect applications to CLOBs &amp; PropAMMs through a single API integration. Users get better swap pricing without counterparty risk.</p>
+      </div>
+      <div class="infra__diagram">
+        <picture>
+          <source media="(max-width: 1024px)" srcset="assets/visuals/what-is-diagram-mobile.png">
+          <img src="assets/visuals/what-is-diagram.png" alt="Order sources route through Avail Atomic to execution venues" width="1296" height="420">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PROBLEM ============== -->
+  <section class="section problem">
+    <div class="section__inner">
+      <div class="problem__head">
+        <p class="eyebrow">The Problem</p>
+        <h2 class="h2">DEXs and aggregators are losing users to CLOBs.</h2>
+      </div>
+      <div class="problem__grid">
+        <div class="point"><p class="point__num">01</p><p class="point__title">Costly Slippage</p><p class="point__desc">AMM-based infrastructure creates slippage, especially on larger orders.</p></div>
+        <div class="point"><p class="point__num">02</p><p class="point__title">The CLOB Edge</p><p class="point__desc">CLOBs offer tighter spreads and better pricing.</p></div>
+        <div class="point"><p class="point__num">03</p><p class="point__title">Integration Friction</p><p class="point__desc">Integrating with CLOBs is complex and time-consuming.</p></div>
+        <div class="point"><p class="point__num">04</p><p class="point__title">Silent Churn</p><p class="point__desc">You are offering inferior pricing while your users can get better deals elsewhere.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VALUE PROP ============== -->
+  <section class="section value" id="value">
+    <div class="section__inner">
+      <p class="eyebrow">Value Proposition</p>
+      <h2 class="h2">Why Avail Atomic</h2>
+      <div class="value__grid">
+        <div class="value__card">
+          <img class="value__icon" src="assets/icons/value-pricing.svg" alt="" width="48" height="48">
+          <p class="value__num">01</p><p class="value__title">More Competitive Pricing</p><p class="value__desc">Route orders to CLOBs for tighter spreads. On larger orders, the difference adds up significantly.</p>
+        </div>
+        <div class="value__card">
+          <img class="value__icon" src="assets/icons/value-integration.svg" alt="" width="48" height="48">
+          <p class="value__num">02</p><p class="value__title">One Integration, Multiple Venues</p><p class="value__desc">Single connection to access CLOB execution without building to each one individually.</p>
+        </div>
+        <div class="value__card">
+          <img class="value__icon" src="assets/icons/value-trustless.svg" alt="" width="48" height="48">
+          <p class="value__num">03</p><p class="value__title">Trustless Execution</p><p class="value__desc">Trade executes off-chain, settles on-chain. Either the trade completes, or funds return to the user.</p>
+        </div>
+        <div class="value__card">
+          <img class="value__icon" src="assets/icons/value-atomic.svg" alt="" width="48" height="48">
+          <p class="value__num">04</p><p class="value__title">Atomic Settlement</p><p class="value__desc">Trades complete in totality or revert. No partial states, no user funds at risk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== HOW IT WORKS (sticky scroll) ============== -->
+  <section class="section hiw" id="how">
+    <div class="section__inner">
+      <p class="eyebrow">How It Works</p>
+      <h2 class="h2">From swap intent to onchain settlement</h2>
+      <div class="hiw__grid">
+        <div class="hiw__steps">
+          <div class="hiw__step is-active" data-step="0"><img class="hiw__step-visual" src="assets/visuals/hiw-01-swap-mobile.png" alt="Submit swap intent" width="460" height="320"><div class="hiw__step-num">01</div><h3>Submit Swap Intent</h3><p>Your app calls the Avail Atomic API with the swap details.</p></div>
+          <div class="hiw__step" data-step="1"><img class="hiw__step-visual" src="assets/visuals/hiw-02-quotes-mobile.png" alt="Compare quotes" width="460" height="320"><div class="hiw__step-num">02 <span class="hiw__soon">Soon</span></div><h3>Compare Quotes</h3><p>Avail Atomic returns competing quotes. The app selects the best price.</p></div>
+          <div class="hiw__step" data-step="2"><img class="hiw__step-visual" src="assets/visuals/hiw-03-routing-mobile.png" alt="Avail Atomic routes" width="460" height="320"><div class="hiw__step-num">03</div><h3>Avail Atomic Routes</h3><p>Orders are routed to the selected venue for execution.</p></div>
+          <div class="hiw__step" data-step="3"><img class="hiw__step-visual" src="assets/visuals/hiw-04-settled-mobile.png" alt="Atomic settlement" width="460" height="320"><div class="hiw__step-num">04</div><h3>Atomic Settlement</h3><p>The trade settles onchain in full, or returns the funds automatically.</p></div>
+        </div>
+
+        <div class="hiw__visual-wrap">
+          <div class="hiw__panel is-active" data-panel="0"><img src="assets/visuals/hiw-01-swap.png" alt="Submit swap intent" width="500" height="500"></div>
+          <div class="hiw__panel" data-panel="1"><img src="assets/visuals/hiw-02-quotes.png" alt="Compare quotes" width="500" height="500"></div>
+          <div class="hiw__panel" data-panel="2"><img src="assets/visuals/hiw-03-routing.png" alt="Avail Atomic routes" width="500" height="500"></div>
+          <div class="hiw__panel" data-panel="3"><img src="assets/visuals/hiw-04-settled.png" alt="Atomic settlement" width="500" height="500"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== LIVE INTEGRATION ============== -->
+  <section class="section integration" id="integrations">
+    <div class="integration__texture" aria-hidden="true"></div>
+    <div class="section__inner">
+      <div class="integ__header">
+        <p class="eyebrow">Live Integration</p>
+        <h2 class="h2">Quickswap + KalqiX's CLOB exchange</h2>
+      </div>
+      <div class="integ__grid">
+        <div class="integ__card">
+          <p class="integ__role">Order Source</p>
+          <p class="integ__name">Quickswap</p>
+          <p class="integ__desc">Users can now route orders through KalqiX's CLOB exchange for tighter spreads and better execution.</p>
+        </div>
+        <img class="integ__arrow" src="assets/icons/pixel-arrow.svg?v=2" alt="" width="36" height="16">
+        <div class="integ__card">
+          <p class="integ__role">Execution Venue</p>
+          <p class="integ__name">KalqiX CLOB</p>
+          <p class="integ__desc">Central Limit Order Book exchange providing tighter spreads and better pricing for users.</p>
+        </div>
+      </div>
+      <p class="integ__note"><span class="integ__dot" aria-hidden="true"></span>More CLOB integrations and order sources are coming.</p>
+    </div>
+  </section>
+
+  <!-- ============== GET STARTED / CTA ============== -->
+  <div class="cta" id="contact">
+    <div class="cta__panel">
+      <img class="cta__pixels cta__pixels--tl" src="assets/icons/cta-pixels-tl.svg" alt="" aria-hidden="true">
+      <img class="cta__pixels cta__pixels--br" src="assets/icons/cta-pixels-br.svg" alt="" aria-hidden="true">
+      <div class="cta__copy">
+        <p class="eyebrow eyebrow--light">Get Started</p>
+        <h2>Give your users access to CLOB pricing.</h2>
+        <p class="cta__sub">Integrate once. Route to multiple CLOB venues. Deliver better prices to your users.</p>
+      </div>
+      <div class="cta__actions">
+        <a href="#contact" class="btn btn-light">Get in Touch</a>
+        <a href="https://docs.availproject.org/" class="btn btn-outline-light" target="_blank" rel="noopener">Read the Docs</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== FOOTER (shell) ============== -->
+  <footer class="site-footer" aria-label="Footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__cta">
+          <h2 class="site-footer__headline">Have questions?</h2>
+          <p class="site-footer__subcopy">Get in touch with us and understand exactly what we do</p>
+          <a href="https://calendly.com/d/cwfp-t3y-gt2/avail-discovery-call" class="btn btn-primary site-footer__btn" target="_blank" rel="noopener">Schedule A Demo</a>
+          <p class="site-footer__copyright">Copyright © Avail Project. All rights reserved.</p>
+        </div>
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <div class="site-footer__nav-group site-footer__nav-group--pages">
+            <p class="site-footer__nav-heading">Pages</p>
+            <div class="site-footer__nav-columns">
+              <ul class="site-footer__nav-list">
+                <li><a href="https://availproject.org/" class="site-footer__nav-link">Home</a></li>
+                <li><a href="#value" class="site-footer__nav-link">Value</a></li>
+                <li><a href="#how" class="site-footer__nav-link">How It Works</a></li>
+                <li><a href="#integrations" class="site-footer__nav-link">Integrations</a></li>
+              </ul>
+              <ul class="site-footer__nav-list">
+                <li><a href="https://blog.availproject.org/" class="site-footer__nav-link" target="_blank" rel="noopener">Blog</a></li>
+                <li><a href="https://docs.availproject.org/" class="site-footer__nav-link" target="_blank" rel="noopener">Docs</a></li>
+                <li><a href="#contact" class="site-footer__nav-link">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__nav-group site-footer__nav-group--support-press">
+            <div class="site-footer__nav-subgroup">
+              <p class="site-footer__nav-heading">Support</p>
+              <ul class="site-footer__nav-list">
+                <li><a href="https://docs.availproject.org/" class="site-footer__nav-link" target="_blank" rel="noopener">Docs</a></li>
+                <li><a href="https://discord.com/invite/AvailProject" class="site-footer__nav-link" target="_blank" rel="noopener">Discord</a></li>
+                <li><a href="https://github.com/availproject" class="site-footer__nav-link" target="_blank" rel="noopener">GitHub</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__nav-subgroup">
+              <p class="site-footer__nav-heading">Press Kit</p>
+              <ul class="site-footer__nav-list">
+                <li><a href="https://availproject.org/brand" class="site-footer__nav-link" target="_blank" rel="noopener">Brand Assets</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__nav-group site-footer__nav-group--socials">
+            <p class="site-footer__nav-heading">Socials</p>
+            <ul class="site-footer__nav-list">
+              <li><a href="https://x.com/AvailProject" class="site-footer__nav-link" target="_blank" rel="noopener">X (Twitter)</a></li>
+              <li><a href="https://www.linkedin.com/company/availproject/" class="site-footer__nav-link" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://t.me/availproject" class="site-footer__nav-link" target="_blank" rel="noopener">Telegram</a></li>
+              <li><a href="https://www.youtube.com/@AvailProject" class="site-footer__nav-link" target="_blank" rel="noopener">YouTube</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="site-footer__logo" aria-hidden="true">
+        <img src="assets/footer/avail-wordmark.png" alt="" class="site-footer__logo-img" width="832" height="203" loading="lazy">
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="halftone-background.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
