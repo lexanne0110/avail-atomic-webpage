@@ -71,8 +71,6 @@ img, svg { display: block; max-width: 100%; }
 }
 .page-bg__canvas { display: block; width: 100%; height: 100%; }
 .page-shell > :not(.page-bg) { position: relative; z-index: 1; }
-/* sections sit on solid white so the canvas only shows behind the hero */
-.section:not(.hero) { background: var(--white); }
 
 /* ── Section base ────────────────────────────── */
 .section { position: relative; }
@@ -138,16 +136,7 @@ img, svg { display: block; max-width: 100%; }
 .hero__sub { font-size: 20px; line-height: 1.6; color: var(--muted); max-width: 500px; margin-bottom: 36px; }
 .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero__visual { display: flex; justify-content: flex-end; }
-.hero__visual img { max-height: 72vh; width: auto; max-width: 100%; height: auto; display: block; }
-
-/* ============================================================
-   PROBLEM (text 2x2 with pixel accents)
-   ============================================================ */
-.problem__head { max-width: 640px; margin-bottom: 8px; }
-.problem__grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; row-gap: 48px; margin-top: 36px; }
-.point__num { font-size: 15px; font-weight: 500; color: #888785; margin-bottom: 8px; }
-.point__title { font-size: 16px; font-weight: 700; text-transform: uppercase; color: #000; margin-bottom: 8px; letter-spacing: 0.01em; }
-.point__desc { font-size: 18px; line-height: 1.5; color: var(--muted); max-width: 460px; }
+.hero__visual img, .hero__visual .hero__video { max-height: 72vh; width: auto; max-width: 100%; height: auto; display: block; }
 
 /* ============================================================
    INFRASTRUCTURE (text + horizontal diagram)
@@ -159,7 +148,7 @@ img, svg { display: block; max-width: 100%; }
    VALUE PROP (1x4 icon cards)
    ============================================================ */
 .value__grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 44px; }
-.value__card { background: rgba(0,72,255,0.04); padding: 24px 20px 32px; display: flex; flex-direction: column; gap: 16px; }
+.value__card { background: #f5f8ff; padding: 24px 20px 32px; display: flex; flex-direction: column; gap: 16px; }
 .value__icon { width: 48px; height: 48px; }
 .value__num { font-size: 15px; font-weight: 500; color: var(--nexus-blue); }
 .value__title { font-size: 18px; font-weight: 700; text-transform: uppercase; color: #000; line-height: 1.2; }
@@ -173,12 +162,12 @@ img, svg { display: block; max-width: 100%; }
 .hiw__step {
   transition: opacity 0.3s ease, background 0.25s ease;
   opacity: 0.45; cursor: pointer;
-  padding: 24px 28px; border-radius: 10px;
+  padding: 24px 28px;
 }
-.hiw__step:hover { opacity: 0.8; background: rgba(0,72,255,0.035); }
-.hiw__step.is-active { opacity: 1; background: rgba(0,72,255,0.05); }
+.hiw__step:hover { opacity: 0.8; background: #f4f6fd; }
+.hiw__step.is-active { opacity: 1; background: #edf1fc; }
 .hiw__step-num { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 500; color: #888785; letter-spacing: 0.04em; margin-bottom: 14px; }
-.hiw__soon { font-size: 11px; font-weight: 500; text-transform: uppercase; color: var(--nexus-blue); background: rgba(0,72,255,0.08); padding: 3px 8px; }
+.hiw__soon { font-size: 11px; font-weight: 500; text-transform: uppercase; color: var(--nexus-blue); background: #e6edff; padding: 3px 8px; }
 .hiw__step h3 { font-size: 28px; font-weight: 700; color: var(--heading); margin-bottom: 12px; line-height: 1.1; }
 .hiw__step p { font-size: 19px; line-height: 1.5; color: var(--muted); max-width: 460px; }
 .hiw__visual-wrap { position: sticky; top: 120px; align-self: start; height: 500px; }
@@ -212,8 +201,8 @@ img, svg { display: block; max-width: 100%; }
 /* ============================================================
    GET STARTED / CTA  (Figma 86:72)
    ============================================================ */
-.cta { padding: 0 0 96px; }
-.cta__panel { background: var(--nexus-blue); color: #fff; border-radius: 4px; padding: 84px var(--content-inset); position: relative; overflow: hidden; }
+.cta { padding: 0 var(--content-inset) 96px; max-width: var(--max-width); margin-inline: auto; }
+.cta__panel { background: var(--nexus-blue); color: #fff; border-radius: 4px; padding: 72px 56px; position: relative; overflow: hidden; }
 .cta__copy { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 18px; max-width: 800px; }
 .cta__copy .eyebrow { margin: 0; }
 .eyebrow--light { color: rgba(255,255,255,0.85); }
@@ -221,7 +210,7 @@ img, svg { display: block; max-width: 100%; }
 .cta__sub { font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.88); max-width: 580px; margin: 0; }
 .cta__actions { position: relative; z-index: 1; display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
 .cta__pixels { position: absolute; z-index: 0; pointer-events: none; }
-.cta__pixels--tl { top: 0; left: 0; width: 207px; height: 107px; }
+.cta__pixels--tl { top: 0; right: 0; width: 207px; height: 107px; }
 .cta__pixels--br { right: 0; bottom: 0; width: 116px; height: 225px; }
 .btn-light { background: #fff; color: var(--black); }
 .btn-outline-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.55); }
@@ -263,12 +252,12 @@ img, svg { display: block; max-width: 100%; }
   .hero__inner { grid-template-columns: 1fr; gap: 40px; padding: 16px 40px 64px; }
   .hero__visual { max-width: 460px; }
   .section__inner { padding: 72px 40px; }
-  .problem__grid, .value__grid { grid-template-columns: 1fr 1fr; }
+  .value__grid { grid-template-columns: 1fr 1fr; }
   .hiw__grid { grid-template-columns: 1fr; gap: 40px; }
   .hiw__visual-wrap { display: none; }
   .hiw__steps { gap: 96px; padding: 0; }
   .hiw__step, .hiw__step.is-active { opacity: 1; padding: 0; border: 0; background: none; }
-  .hiw__step-visual { display: block; width: 100%; height: auto; border-radius: 4px; margin-bottom: 18px; }
+  .hiw__step-visual { display: block; width: 100%; height: auto; margin-bottom: 18px; }
   .integ__grid { grid-template-columns: 1fr; }
   .integ__arrow { transform: rotate(90deg); justify-self: center; }
   .site-footer__top { flex-direction: column; align-items: center; gap: 64px; padding: 46px 48px 0; }
@@ -277,7 +266,7 @@ img, svg { display: block; max-width: 100%; }
 }
 
 @media (max-width: 640px) {
-  .problem__grid, .value__grid { grid-template-columns: 1fr; }
+  .value__grid { grid-template-columns: 1fr; }
   /* mobile type scale — smaller headings */
   .hero h1 { font-size: 33px; line-height: 1.12; }
   .h2, .cta__panel h2, .site-footer__headline { font-size: 26px; line-height: 1.25; }

@@ -62,7 +62,12 @@
             <a href="https://docs.availproject.org/" class="btn btn-secondary" target="_blank" rel="noopener">Read the Docs</a>
           </div>
         </div>
-        <div class="hero__visual"><img src="assets/visuals/hero-atom.png" alt="Avail Atomic — chains connected through an atomic core" width="600" height="647"></div>
+        <div class="hero__visual">
+          <video class="hero__video" autoplay loop muted playsinline poster="assets/visuals/hero-atom.png" width="600" height="647" aria-label="Avail Atomic — swap routed to the best quote">
+            <source src="assets/visuals/atomic-hero.webm" type="video/webm">
+            <source src="assets/visuals/atomic-hero.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -80,48 +85,6 @@
           <source media="(max-width: 1024px)" srcset="assets/visuals/what-is-diagram-mobile.png">
           <img src="assets/visuals/what-is-diagram.png" alt="Order sources route through Avail Atomic to execution venues" width="1296" height="420">
         </picture>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== PROBLEM ============== -->
-  <section class="section problem">
-    <div class="section__inner">
-      <div class="problem__head">
-        <p class="eyebrow">The Problem</p>
-        <h2 class="h2">DEXs and aggregators are losing users to CLOBs.</h2>
-      </div>
-      <div class="problem__grid">
-        <div class="point"><p class="point__num">01</p><p class="point__title">Costly Slippage</p><p class="point__desc">AMM-based infrastructure creates slippage, especially on larger orders.</p></div>
-        <div class="point"><p class="point__num">02</p><p class="point__title">The CLOB Edge</p><p class="point__desc">CLOBs offer tighter spreads and better pricing.</p></div>
-        <div class="point"><p class="point__num">03</p><p class="point__title">Integration Friction</p><p class="point__desc">Integrating with CLOBs is complex and time-consuming.</p></div>
-        <div class="point"><p class="point__num">04</p><p class="point__title">Silent Churn</p><p class="point__desc">You are offering inferior pricing while your users can get better deals elsewhere.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== VALUE PROP ============== -->
-  <section class="section value" id="value">
-    <div class="section__inner">
-      <p class="eyebrow">Value Proposition</p>
-      <h2 class="h2">Why Avail Atomic</h2>
-      <div class="value__grid">
-        <div class="value__card">
-          <img class="value__icon" src="assets/icons/value-pricing.svg" alt="" width="48" height="48">
-          <p class="value__num">01</p><p class="value__title">More Competitive Pricing</p><p class="value__desc">Route orders to CLOBs for tighter spreads. On larger orders, the difference adds up significantly.</p>
-        </div>
-        <div class="value__card">
-          <img class="value__icon" src="assets/icons/value-integration.svg" alt="" width="48" height="48">
-          <p class="value__num">02</p><p class="value__title">One Integration, Multiple Venues</p><p class="value__desc">Single connection to access CLOB execution without building to each one individually.</p>
-        </div>
-        <div class="value__card">
-          <img class="value__icon" src="assets/icons/value-trustless.svg" alt="" width="48" height="48">
-          <p class="value__num">03</p><p class="value__title">Trustless Execution</p><p class="value__desc">Trade executes off-chain, settles on-chain. Either the trade completes, or funds return to the user.</p>
-        </div>
-        <div class="value__card">
-          <img class="value__icon" src="assets/icons/value-atomic.svg" alt="" width="48" height="48">
-          <p class="value__num">04</p><p class="value__title">Atomic Settlement</p><p class="value__desc">Trades complete in totality or revert. No partial states, no user funds at risk.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -144,6 +107,32 @@
           <div class="hiw__panel" data-panel="1"><img src="assets/visuals/hiw-02-quotes.png" alt="Compare quotes" width="500" height="500"></div>
           <div class="hiw__panel" data-panel="2"><img src="assets/visuals/hiw-03-routing.png" alt="Avail Atomic routes" width="500" height="500"></div>
           <div class="hiw__panel" data-panel="3"><img src="assets/visuals/hiw-04-settled.png" alt="Atomic settlement" width="500" height="500"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VALUE PROP ============== -->
+  <section class="section value" id="value">
+    <div class="section__inner">
+      <p class="eyebrow">Value Proposition</p>
+      <h2 class="h2">Why Avail Atomic</h2>
+      <div class="value__grid">
+        <div class="value__card">
+          <img class="value__icon" src="assets/icons/value-pricing.svg" alt="" width="48" height="48">
+          <p class="value__num">01</p><p class="value__title">Better Price Execution</p><p class="value__desc">Guarantee tighter spreads and deeper liquidity.</p>
+        </div>
+        <div class="value__card">
+          <img class="value__icon" src="assets/icons/value-integration.svg" alt="" width="48" height="48">
+          <p class="value__num">02</p><p class="value__title">One Integration, Multiple Venues</p><p class="value__desc">Connect to multiple execution venues through a single API.</p>
+        </div>
+        <div class="value__card">
+          <img class="value__icon" src="assets/icons/value-trustless.svg" alt="" width="48" height="48">
+          <p class="value__num">03</p><p class="value__title">No Counterparty Risk</p><p class="value__desc">Funds only move when onchain conditions are met.</p>
+        </div>
+        <div class="value__card">
+          <img class="value__icon" src="assets/icons/value-atomic.svg" alt="" width="48" height="48">
+          <p class="value__num">04</p><p class="value__title">Atomic Settlement</p><p class="value__desc">Trades settle in full or revert automatically.</p>
         </div>
       </div>
     </div>
