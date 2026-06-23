@@ -136,7 +136,7 @@ img, svg { display: block; max-width: 100%; }
 .hero__sub { font-size: 20px; line-height: 1.6; color: var(--muted); max-width: 500px; margin-bottom: 36px; }
 .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero__visual { display: flex; justify-content: flex-end; }
-.hero__visual img, .hero__visual .hero__video { max-height: 72vh; width: auto; max-width: 100%; height: auto; display: block; }
+.hero__visual img, .hero__visual .hero__video { max-height: 64vh; width: auto; max-width: 520px; height: auto; display: block; }
 
 /* ============================================================
    INFRASTRUCTURE (text + horizontal diagram)
