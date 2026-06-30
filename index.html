@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avail Atomic — Route Orders To CLOBs With Atomic Settlement</title>
+  <title>Avail Atomic: Route Orders to CLOBs and PropAMMs with Atomic Settlement</title>
   <meta name="description" content="Avail Atomic routes orders to CLOBs and PropAMMs for better pricing while atomically settling transactions onchain.">
   <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="nav.css">
 </head>
@@ -63,7 +63,10 @@
           </div>
         </div>
         <div class="hero__visual">
-          <video class="hero__video" autoplay loop muted playsinline poster="assets/visuals/hero-atom.png" width="600" height="647" aria-label="Avail Atomic — swap routed to the best quote">
+          <span class="sr-only">Avail Atomic — a swap request is routed to CLOBs and PropAMMs, the best quote from KalkiX is selected, the intent is locked, and the swap settles atomically back to the app.</span>
+          <video class="hero__video" autoplay loop muted playsinline
+                 poster="assets/visuals/atomic-hero-poster.png"
+                 width="600" height="647" aria-hidden="true">
             <source src="assets/visuals/atomic-hero.webm" type="video/webm">
             <source src="assets/visuals/atomic-hero.mp4" type="video/mp4">
           </video>
@@ -124,7 +127,7 @@
         </div>
         <div class="value__card">
           <img class="value__icon" src="assets/icons/value-integration.svg" alt="" width="48" height="48">
-          <p class="value__num">02</p><p class="value__title">One Integration, Multiple Venues</p><p class="value__desc">Connect to multiple execution venues through a single API.</p>
+          <p class="value__num">02</p><p class="value__title">Multiple Venues</p><p class="value__desc">Connect to multiple execution venues through a single API.</p>
         </div>
         <div class="value__card">
           <img class="value__icon" src="assets/icons/value-trustless.svg" alt="" width="48" height="48">
@@ -138,28 +141,24 @@
     </div>
   </section>
 
-  <!-- ============== LIVE INTEGRATION ============== -->
+  <!-- ============== LIVE INTEGRATION (partner announcement) ============== -->
   <section class="section integration" id="integrations">
-    <div class="integration__texture" aria-hidden="true"></div>
     <div class="section__inner">
-      <div class="integ__header">
-        <p class="eyebrow">Live Integration</p>
-        <h2 class="h2">Quickswap + KalqiX's CLOB exchange</h2>
-      </div>
-      <div class="integ__grid">
-        <div class="integ__card">
-          <p class="integ__role">Order Source</p>
-          <p class="integ__name">Quickswap</p>
-          <p class="integ__desc">Users can now route orders through KalqiX's CLOB exchange for tighter spreads and better execution.</p>
-        </div>
-        <img class="integ__arrow" src="assets/icons/pixel-arrow.svg?v=2" alt="" width="36" height="16">
-        <div class="integ__card">
-          <p class="integ__role">Execution Venue</p>
-          <p class="integ__name">KalqiX CLOB</p>
-          <p class="integ__desc">Central Limit Order Book exchange providing tighter spreads and better pricing for users.</p>
+      <div class="announce">
+        <div class="announce__bg" aria-hidden="true"></div>
+        <img class="announce__px announce__px--tl" src="assets/icons/cta-pixels-tl.svg" alt="" aria-hidden="true">
+        <img class="announce__px announce__px--br" src="assets/icons/cta-pixels-br.svg" alt="" aria-hidden="true">
+        <div class="announce__inner">
+          <p class="eyebrow eyebrow--light">Live Integration</p>
+          <div class="announce__lockup">
+            <span class="announce__brand">Avail Atomic</span>
+            <span class="announce__x" aria-hidden="true">&times;</span>
+            <span class="announce__brand">Quickswap</span>
+          </div>
+          <p class="announce__sub">Quickswap now routes orders through KalqiX's CLOB exchange via Avail Atomic for tighter spreads and better execution.</p>
+          <p class="announce__note"><span class="integ__dot" aria-hidden="true"></span>More CLOB integrations and order sources are coming.</p>
         </div>
       </div>
-      <p class="integ__note"><span class="integ__dot" aria-hidden="true"></span>More CLOB integrations and order sources are coming.</p>
     </div>
   </section>
 

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Avail Atomic — Architecture (hero style)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600;700&family=Inter:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --geist: 'Geist', var(--inter);
+    --card-shadow:
+      0 14px 28px rgba(21,113,254,0.18),
+      0 5px 11px rgba(0,40,160,0.20),
+      0 1px 2px rgba(17,52,106,0.10),
+      0 0 0 5px rgba(255,255,255,0.45);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    padding: 40px 24px;
+    font-family: var(--inter);
+  }
+
+  .diagram-wrap { width: 100%; max-width: 957px; }
+
+  /* native design is 957x316, scaled to fit the wrapper width */
+  .diagram {
+    position: relative;
+    width: 957px;
+    height: 316px;
+    transform-origin: top left;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #0048ff;
+    color: #fff;
+    isolation: isolate;
+  }
+  .diagram__bg {
+    position: absolute; inset: 0;
+    background: url('assets/visuals/hero-anim-bg.png') top left / 200% auto no-repeat;
+    mix-blend-mode: soft-light;
+    opacity: 0.16;
+    pointer-events: none;
+  }
+
+  .label {
+    position: absolute;
+    font-family: var(--inter);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: rgba(255,255,255,0.72);
+    white-space: nowrap;
+  }
+
+  /* connectors sit above bg, below cards */
+  .flow { position: absolute; inset: 0; width: 957px; height: 316px; z-index: 1; }
+  .flow path {
+    fill: none;
+    stroke: rgba(255,255,255,0.45);
+    stroke-width: 1.5;
+    stroke-dasharray: 2.5 5;
+    stroke-linecap: round;
+  }
+  .flow circle { fill: #fff; }
+
+  .card {
+    position: absolute;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px;
+    z-index: 2;
+  }
+  .card__icon {
+    flex: none;
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    background: #eef2f9;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card__icon span { width: 9px; height: 9px; border-radius: 2px; background: #0048ff; }
+  .card__name { font-family: var(--geist); font-weight: 600; font-size: 13px; color: #141413; white-space: nowrap; }
+
+  .hub {
+    position: absolute;
+    left: 427px; top: 77px;
+    width: 104px; height: 86px;
+    background: #0068ff;
+    border-radius: 18px;
+    box-shadow: 0 10px 26px rgba(0,26,102,0.40);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 5px;
+    z-index: 3;
+  }
+  .hub__logo { width: 34px; height: 34px; filter: brightness(0) invert(1); }
+  .hub__title { font-family: var(--geist); font-weight: 600; font-size: 11px; color: #fff; }
+  .hub__sub { font-family: var(--inter); font-weight: 600; font-size: 7.5px; letter-spacing: 1px; color: rgba(255,255,255,0.72); }
+
+  .lock {
+    position: absolute;
+    left: 459px; top: 174px;
+    width: 40px; height: 28px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 14px rgba(13,26,64,0.25);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 3;
+  }
+  .lock svg { width: 13px; height: 13px; }
+
+  .liquidity-box {
+    position: absolute;
+    left: 699px; top: 57px;
+    width: 236px; height: 116px;
+    border: 1.4px dashed rgba(255,255,255,0.45);
+    border-radius: 14px;
+    z-index: 1;
+  }
+
+  .settlement {
+    position: absolute;
+    left: 15px; top: 257px;
+    width: 928px; height: 44px;
+    background: #0c1326;
+    border-radius: 10px;
+    display: flex; align-items: center;
+    padding: 0 20px;
+    gap: 14px;
+    z-index: 4;
+  }
+  .settlement__eyebrow { font-family: var(--inter); font-weight: 600; font-size: 9px; letter-spacing: 1.1px; color: #8a93a7; white-space: nowrap; }
+  .settlement__check {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #11b981; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .settlement__check svg { width: 11px; height: 11px; }
+  .settlement__main { font-family: var(--inter); font-weight: 600; font-size: 13px; color: #fff; white-space: nowrap; }
+  .settlement__note { font-family: var(--inter); font-weight: 500; font-size: 11.5px; color: #8a93a7; white-space: nowrap; margin-left: auto; }
+</style>
+</head>
+<body>
+  <div class="diagram-wrap">
+    <div class="diagram" id="diagram">
+      <div class="diagram__bg"></div>
+
+      <span class="label" style="left:27px; top:21px;">ORDER SOURCES</span>
+      <span class="label" style="left:711px; top:21px;">OFFCHAIN LIQUIDITY</span>
+
+      <!-- connectors -->
+      <svg class="flow" viewBox="0 0 957 316" preserveAspectRatio="none" aria-hidden="true">
+        <!-- sources -> hub -->
+        <path d="M177 73 C 290 73, 330 110, 427 110" />
+        <path d="M177 123 C 300 123, 360 120, 427 120" />
+        <path d="M177 173 C 290 173, 330 130, 427 130" />
+        <!-- hub -> liquidity -->
+        <path d="M531 108 C 620 100, 640 88, 715 88" />
+        <path d="M531 132 C 620 138, 640 138, 715 138" />
+        <!-- flow accent dots -->
+        <circle cx="246" cy="89" r="3" />
+        <circle cx="246" cy="121" r="3" />
+        <circle cx="246" cy="153" r="3" />
+        <circle cx="599" cy="97" r="3" />
+        <circle cx="599" cy="137" r="3" />
+      </svg>
+
+      <!-- order sources -->
+      <div class="card" style="left:27px; top:53px; width:150px; height:40px;">
+        <span class="card__icon"><span></span></span><span class="card__name">DEX</span>
+      </div>
+      <div class="card" style="left:27px; top:103px; width:150px; height:40px;">
+        <span class="card__icon"><span></span></span><span class="card__name">Aggregator</span>
+      </div>
+      <div class="card" style="left:27px; top:153px; width:150px; height:40px;">
+        <span class="card__icon"><span></span></span><span class="card__name">Wallet</span>
+      </div>
+
+      <!-- hub -->
+      <div class="hub">
+        <img class="hub__logo" src="assets/logo-mark.svg" alt="" />
+        <span class="hub__title">Avail Atomic</span>
+        <span class="hub__sub">SINGLE API</span>
+      </div>
+      <div class="lock" title="atomic settlement">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" fill="#0b1020"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="#0b1020" stroke-width="2" fill="none"/></svg>
+      </div>
+
+      <!-- offchain liquidity -->
+      <div class="liquidity-box"></div>
+      <div class="card" style="left:715px; top:69px; width:204px; height:38px;">
+        <span class="card__icon"><span></span></span><span class="card__name">CLOBs</span>
+      </div>
+      <div class="card" style="left:715px; top:119px; width:204px; height:38px;">
+        <span class="card__icon"><span></span></span><span class="card__name">PropAMMs</span>
+      </div>
+
+      <!-- settlement bar -->
+      <div class="settlement">
+        <span class="settlement__eyebrow">ONCHAIN SETTLEMENT</span>
+        <span class="settlement__check"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12.5l4 4 8-9" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="settlement__main">Settles in full, or funds revert</span>
+        <span class="settlement__note">Only completes when onchain conditions are met · No counterparty risk</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // scale the fixed 957px stage to fit its wrapper width
+    function fit() {
+      var wrap = document.querySelector('.diagram-wrap');
+      var stage = document.getElementById('diagram');
+      var s = Math.min(1, wrap.clientWidth / 957);
+      stage.style.transform = 'scale(' + s + ')';
+      wrap.style.height = (316 * s) + 'px';
+    }
+    window.addEventListener('resize', fit);
+    fit();
+  </script>
+</body>
+</html>
