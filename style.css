@@ -545,7 +545,9 @@ img, svg { display: block; max-width: 100%; }
 .cta__panel h2 { font-family: 'Delight', Georgia, serif; font-weight: 500; font-size: 36px; line-height: 1.3; letter-spacing: -0.72px; margin: 0; max-width: 760px; }
 .cta__sub { font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.88); max-width: 580px; margin: 0; }
 .cta__actions { position: relative; z-index: 1; display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
-.cta__bg { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: auto; z-index: 0; pointer-events: none; mix-blend-mode: screen; object-fit: cover; object-position: bottom; }
+.cta__bg { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: auto; z-index: 0; pointer-events: none; mix-blend-mode: screen; object-fit: cover; object-position: bottom;
+  -webkit-mask-image: linear-gradient(315deg, #000 0%, rgba(0,0,0,0.55) 30%, transparent 60%);
+          mask-image: linear-gradient(315deg, #000 0%, rgba(0,0,0,0.55) 30%, transparent 60%); }
 .btn-light { background: #fff; color: var(--black); }
 .btn-outline-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.55); }
 
