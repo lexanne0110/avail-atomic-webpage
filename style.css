@@ -478,20 +478,30 @@ img, svg { display: block; max-width: 100%; }
 /* ============================================================
    HOW IT WORKS (sticky scroll)
    ============================================================ */
-.hiw__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; margin-top: 44px; align-items: start; }
-.hiw__steps { display: flex; flex-direction: column; gap: 56px; padding: 40px 0; }
+/* Layout B — side rail + stage (timed auto-advance + click, no scroll) */
+.hiw__grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 72px; margin-top: 44px; align-items: start; }
+.hiw__steps { display: flex; flex-direction: column; gap: 4px; padding: 0; }
 .hiw__step {
-  transition: opacity 0.3s ease, background 0.25s ease;
-  opacity: 0.45; cursor: pointer;
-  padding: 24px 28px;
+  position: relative; cursor: pointer; padding: 20px 26px;
+  background: transparent; transition: background 0.25s ease;
 }
-.hiw__step:hover { opacity: 0.8; background: #f4f6fd; }
-.hiw__step.is-active { opacity: 1; background: #edf1fc; }
-.hiw__step-num { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 500; color: #888785; letter-spacing: 0.04em; margin-bottom: 14px; }
-.hiw__soon { font-size: 11px; font-weight: 500; text-transform: uppercase; color: var(--nexus-blue); background: #e6edff; padding: 3px 8px; }
-.hiw__step h3 { font-size: 28px; font-weight: 700; color: var(--heading); margin-bottom: 12px; line-height: 1.1; }
-.hiw__step p { font-size: 19px; line-height: 1.5; color: var(--muted); max-width: 460px; }
-.hiw__visual-wrap { position: sticky; top: 120px; align-self: start; height: 500px; }
+.hiw__step:focus-visible { outline: 2px solid var(--nexus-blue); outline-offset: 2px; }
+.hiw__step:hover:not(.is-active) { background: #f4f6fd; }
+.hiw__step.is-active { background: #edf1fc; }
+/* selected card: a brand-blue left line (light track + solid timer fill); non-selected have no line */
+.hiw__step.is-active::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: rgba(0, 72, 255, 0.22); }
+.hiw__fill { position: absolute; left: 0; top: 0; width: 3px; height: 0; background: var(--nexus-blue); z-index: 1; }
+.hiw__step-num { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 500; color: #888785; letter-spacing: 0.04em; margin-bottom: 10px; }
+.hiw__soon { font-size: 11px; font-weight: 500; text-transform: uppercase; color: #fff; background: var(--nexus-blue); padding: 3px 8px; letter-spacing: 0.04em; border-radius: 2px; }
+.hiw__step h3 { font-size: 25px; font-weight: 600; color: #6b6b6a; line-height: 1.15; transition: color 0.25s ease; }
+.hiw__step.is-active h3 { color: var(--heading); }
+.hiw__step p {
+  font-size: 17px; line-height: 1.5; color: var(--muted); max-width: 460px;
+  max-height: 0; opacity: 0; margin-top: 0; overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+}
+.hiw__step.is-active p { max-height: 180px; opacity: 1; margin-top: 12px; }
+.hiw__visual-wrap { position: relative; top: 0; align-self: start; height: 500px; }
 .hiw__panel { position: absolute; inset: 0; background: transparent; display: grid; place-items: center; opacity: 0; transition: opacity 0.4s ease; }
 .hiw__panel.is-active { opacity: 1; }
 .hiw__panel img { width: 100%; height: 100%; object-fit: contain; }
@@ -584,6 +594,10 @@ img, svg { display: block; max-width: 100%; }
   .hiw__steps { gap: 96px; padding: 0; }
   .hiw__step, .hiw__step.is-active { opacity: 1; padding: 0; border: 0; background: none; }
   .hiw__step-visual { display: block; width: 100%; height: auto; margin-bottom: 18px; }
+  /* mobile shows every step in full — no timer/active collapse */
+  .hiw__step h3, .hiw__step.is-active h3 { color: var(--heading); }
+  .hiw__step p, .hiw__step.is-active p { max-height: none; opacity: 1; margin-top: 12px; overflow: visible; }
+  .hiw__fill, .hiw__step.is-active::before { display: none; }
   .integ__grid { grid-template-columns: 1fr; }
   .integ__arrow { transform: rotate(90deg); justify-self: center; }
   .site-footer__top { flex-direction: column; align-items: center; gap: 64px; padding: 46px 48px 0; }

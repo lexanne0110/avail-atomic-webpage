@@ -85,8 +85,9 @@
       </div>
       <div class="infra__diagram">
         <picture>
-          <source media="(max-width: 1024px)" srcset="assets/visuals/what-is-diagram-mobile.png">
-          <img src="assets/visuals/what-is-diagram.png" alt="Order sources route through Avail Atomic to execution venues" width="1296" height="420">
+          <source media="(max-width: 640px)" srcset="assets/visuals/what-is-diagram-mobile.png" width="900" height="760">
+          <source media="(max-width: 1024px)" srcset="assets/visuals/what-is-diagram-tablet.png" width="1040" height="360">
+          <img src="assets/visuals/what-is-diagram.png" alt="Order sources (DEX, Aggregator, Wallet) route through Avail Atomic to execution venues (PropAMMs, CLOBS)" width="1296" height="420">
         </picture>
       </div>
     </div>
@@ -98,18 +99,18 @@
       <p class="eyebrow">How It Works</p>
       <h2 class="h2">From swap intent to onchain settlement</h2>
       <div class="hiw__grid">
-        <div class="hiw__steps">
-          <div class="hiw__step is-active" data-step="0"><img class="hiw__step-visual" src="assets/visuals/hiw-01-swap-mobile.png" alt="Submit swap intent" width="460" height="320"><div class="hiw__step-num">01</div><h3>Submit Swap Intent</h3><p>Your app calls the Avail Atomic API with the swap details.</p></div>
-          <div class="hiw__step" data-step="1"><img class="hiw__step-visual" src="assets/visuals/hiw-02-quotes-mobile.png" alt="Compare quotes" width="460" height="320"><div class="hiw__step-num">02 <span class="hiw__soon">Soon</span></div><h3>Compare Quotes</h3><p>Avail Atomic returns competing quotes. The app selects the best price.</p></div>
-          <div class="hiw__step" data-step="2"><img class="hiw__step-visual" src="assets/visuals/hiw-03-routing-mobile.png" alt="Avail Atomic routes" width="460" height="320"><div class="hiw__step-num">03</div><h3>Avail Atomic Routes</h3><p>Orders are routed to the selected venue for execution.</p></div>
-          <div class="hiw__step" data-step="3"><img class="hiw__step-visual" src="assets/visuals/hiw-04-settled-mobile.png" alt="Atomic settlement" width="460" height="320"><div class="hiw__step-num">04</div><h3>Atomic Settlement</h3><p>The trade settles onchain in full, or returns the funds automatically.</p></div>
+        <div class="hiw__steps" role="tablist" aria-label="How it works steps">
+          <div class="hiw__step is-active" data-step="0" role="tab" tabindex="0" aria-selected="true" aria-label="Step 1: Fetch quotes (coming soon)"><span class="hiw__fill" aria-hidden="true"></span><img class="hiw__step-visual" src="assets/visuals/hiw-02-quotes-mobile.png" alt="Fetch quotes" width="460" height="320"><div class="hiw__step-num">01 <span class="hiw__soon">Soon</span></div><h3>Fetch Quotes</h3><p>Avail Atomic returns competing quotes. The app selects the best price.</p></div>
+          <div class="hiw__step" data-step="1" role="tab" tabindex="0" aria-selected="false" aria-label="Step 2: Submit swap intent"><span class="hiw__fill" aria-hidden="true"></span><img class="hiw__step-visual" src="assets/visuals/hiw-01-swap-mobile.png" alt="Submit swap intent" width="460" height="320"><div class="hiw__step-num">02</div><h3>Submit Swap Intent</h3><p>The app calls Avail Atomic&rsquo;s API with swap details.</p></div>
+          <div class="hiw__step" data-step="2" role="tab" tabindex="0" aria-selected="false" aria-label="Step 3: Intent execution"><span class="hiw__fill" aria-hidden="true"></span><img class="hiw__step-visual" src="assets/visuals/hiw-03-routing-mobile.png" alt="Intent execution" width="460" height="320"><div class="hiw__step-num">03</div><h3>Intent Execution</h3><p>Orders are routed to the selected venue for execution.</p></div>
+          <div class="hiw__step" data-step="3" role="tab" tabindex="0" aria-selected="false" aria-label="Step 4: Settle or unlock"><span class="hiw__fill" aria-hidden="true"></span><img class="hiw__step-visual" src="assets/visuals/hiw-04-settled-mobile.png" alt="Settle or unlock" width="460" height="320"><div class="hiw__step-num">04</div><h3>Settle or Unlock</h3><p>The trade atomically settles onchain, or returns the funds in full.</p></div>
         </div>
 
         <div class="hiw__visual-wrap">
-          <div class="hiw__panel is-active" data-panel="0"><img src="assets/visuals/hiw-01-swap.png" alt="Submit swap intent" width="500" height="500"></div>
-          <div class="hiw__panel" data-panel="1"><img src="assets/visuals/hiw-02-quotes.png" alt="Compare quotes" width="500" height="500"></div>
-          <div class="hiw__panel" data-panel="2"><img src="assets/visuals/hiw-03-routing.png" alt="Avail Atomic routes" width="500" height="500"></div>
-          <div class="hiw__panel" data-panel="3"><img src="assets/visuals/hiw-04-settled.png" alt="Atomic settlement" width="500" height="500"></div>
+          <div class="hiw__panel is-active" data-panel="0"><img src="assets/visuals/hiw-02-quotes.png" alt="Fetch quotes" width="500" height="500"></div>
+          <div class="hiw__panel" data-panel="1"><img src="assets/visuals/hiw-01-swap.png" alt="Submit swap intent" width="500" height="500"></div>
+          <div class="hiw__panel" data-panel="2"><img src="assets/visuals/hiw-03-routing.png" alt="Intent execution" width="500" height="500"></div>
+          <div class="hiw__panel" data-panel="3"><img src="assets/visuals/hiw-04-settled.png" alt="Settle or unlock" width="500" height="500"></div>
         </div>
       </div>
     </div>
