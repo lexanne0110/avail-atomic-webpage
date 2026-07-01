@@ -74,47 +74,4 @@
     if (!reduceMotion) requestAnimationFrame(tick);
   }
 
-  /* ---- Atomic swap hero animation: cycle through the 7 Figma states ---- */
-  var anim = document.querySelector('.atomic-anim');
-  if (anim) {
-    var DURATIONS = [1600, 1300, 1300, 900, 900, 1800, 1400]; // ms held on state 1..7
-    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var step = 1; // HTML starts at data-state="1"
-    var timer = null;
-    var visible = true;
-
-    function advance() {
-      step = (step % DURATIONS.length) + 1;
-      anim.setAttribute('data-state', String(step));
-      if (step === 2) {
-        anim.querySelectorAll('.atomic-anim__fan-line').forEach(function (line) {
-          line.style.animation = 'none';
-          void line.offsetWidth;
-          line.style.removeProperty('animation');
-        });
-      }
-      timer = window.setTimeout(advance, DURATIONS[step - 1]);
-    }
-
-    function start() {
-      if (timer || reduceMotion || !visible) return;
-      timer = window.setTimeout(advance, DURATIONS[step - 1]);
-    }
-
-    function stop() {
-      if (timer) { window.clearTimeout(timer); timer = null; }
-    }
-
-    if (!reduceMotion) {
-      if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function (entries) {
-          visible = entries[0].isIntersecting;
-          if (visible) { start(); } else { stop(); }
-        }, { threshold: 0.1 });
-        observer.observe(anim);
-      } else {
-        start();
-      }
-    }
-  }
 })();
